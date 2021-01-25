@@ -54,7 +54,7 @@ static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits
 {
     // const char* pszTimestamp = "BOXY is Reborn 01/24/2021";
     const CScript genesisInputScript = CScript() << 486604799 << CScriptNum(4) << std::vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
-    const CScript genesisOutputScript = CScript() << ParseHex("09108afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f") << OP_CHECKSIG;
+    const CScript genesisOutputScript = CScript() << ParseHex("04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f") << OP_CHECKSIG;
     return CreateGenesisBlock(genesisInputScript, genesisOutputScript, nTime, nNonce, nBits, 1, 0);
 }
 
@@ -135,10 +135,10 @@ public:
         nDefaultPort = 9012;
         nPruneAfterHeight = 100000;
 
-        genesis = CreateGenesisBlock(1611531850, 1369730, 0x1e0fffff);
+        genesis = CreateGenesisBlock(1542051081, 346790, 0x1e0fffff);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0000023753ed822b48e50afef2797b33a3fa9194f9eb28da09ecf5b7101f964e"));
-        assert(genesis.hashMerkleRoot == uint256S("c682ddc329dd86f5f199514c456897267fa95c83194cf4d4a18a609c1a9ef6ee"));
+        assert(consensus.hashGenesisBlock == uint256S("0x00000631170923bb3d28727d9a8b3166ec0c5db3bc816a2be27657d6caa93942"));
+        assert(genesis.hashMerkleRoot == uint256S("0x8064891fa679776cc8a766f6bb10b1f7b38cf39785a09858e6cbb67577fffaa4"));
 
         // Note that of those which support the service bits prefix, most only support a subset of
         // possible options.
